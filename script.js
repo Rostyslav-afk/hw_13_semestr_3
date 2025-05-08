@@ -1,6 +1,69 @@
 //#1 Використати деструктуризацію об’єктів у всіх завданнях з попередньої ДЗ
 console.log("1 Завдання");
+const user = {
+    name: "Rostyslav",
+    age: 12,
+    hobby: "basketball",
+    premium: true,
+};
 
+
+const users = {
+    name: "Mykola",
+    age: 18,
+    hobby: "voleyball",
+    coutry: "Ukraine",
+    city: "Lviv",
+};
+
+
+const works = {
+    Mykola: 100,
+    Rostyslav: 87,
+    Lev: 75,
+};
+
+const { Mykola, Rostyslav, Lev } = works;
+console.log(Mykola, Rostyslav, Lev);
+
+
+const work = {
+    Mukola: 3000,
+    Rostyk: 2500,
+    Vlad: 2600,
+};
+const { Mukola, Rostyk, Vlad } = work;
+console.log(Mukola, Rostyk, Vlad);
+
+
+const array = [
+    {
+        name: "Rostyslav",
+        age: 12,
+        hobby: "basketball",
+    },
+    {
+        name: "Svyatoslav",
+        age: 10,
+        hobby: "football",
+    },
+    {
+        name: "Ivan",
+        age: 54,
+        hobby: "fishing",
+    },
+];
+const [a, b, c] = array;
+console.log(a, b, c);
+
+
+const products = [
+    { name: "Apple", price: 25, quantity: 3 },
+    { name: "Banana", price: 65, quantity: 4 },
+    { name: "Grape", price: 35, quantity: 5 },
+];
+const [Apple, Banana, Orange] = products;
+console.log(Apple, Banana, Orange);
 
 
 //#2 Напиши сценарій керування особистим кабінетом інтернет-банку. Є об'єкт account в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій.
@@ -74,11 +137,11 @@ const account = {
      * Метод шукає і повертає об'єкт транзакції по id
      */
     getTransactionDetails(id) {
-        for(let i = 0; i < this.transactions.length; i+=1){
+        for (let i = 0; i < this.transactions.length; i += 1) {
             const transaction = this.transactions[i];
-            if (transaction.id === id){
+            if (transaction.id === id) {
                 return transaction
-            } 
+            }
         };
         return null
     },
@@ -89,11 +152,11 @@ const account = {
      */
     getTransactionTotal(type) {
         let total = 0;
-        for(let i = 0; i < this.transactions.length; i+=1){
+        for (let i = 0; i < this.transactions.length; i += 1) {
             const transaction = this.transactions[i]; //{amount: amount, type: type, id: id}
-            if (transaction.type === type){
+            if (transaction.type === type) {
                 total += transaction.amount
-            } 
+            }
         };
         return total
     },
@@ -116,8 +179,8 @@ console.log("Ваш баланс після зняття дорівнює:", acc
 account.withdraw(90)
 console.log("Ваш баланс після зняття дорівнює:", account.getBalance());
 const totalDepositTransactions = account.getTransactionTotal("deposit");
-console.log("Загальна сума поповненнь дорівнює: ",totalDepositTransactions);
+console.log("Загальна сума поповненнь дорівнює: ", totalDepositTransactions);
 const totalWithdrawTransactions = account.getTransactionTotal("withdraw");
-console.log("Загальна сума зняття дорівнює: ",totalWithdrawTransactions);
+console.log("Загальна сума зняття дорівнює: ", totalWithdrawTransactions);
 const detailsTransaction = account.getTransactionDetails(7);
 console.log("Деталі транзакції:", detailsTransaction);
